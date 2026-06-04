@@ -13,6 +13,7 @@
             --text-light: #f7fafc;
             --bg-light: #edf2f7;
             --card-bg: #ffffff;
+            --virtue-accent: #2f855a;
         }
 
         * {
@@ -31,23 +32,36 @@
             min-height: 100vh;
         }
 
+        /* HEADER UPDATED WITH FLEXBOX FOR PERFECT ALIGNMENT */
         header {
             background-color: var(--primary-color);
             color: var(--text-light);
-            padding: 1.5rem;
-            text-align: center;
+            padding: 1rem 2rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .logo-container {
-            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between; /* Pushes one to left, one to right */
+            align-items: center; /* Keeps them centered vertically with each other */
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
         }
 
+        /* Group Logo from image_11.png on the Left */
+        .grouplogo {
+            max-width: 90px;
+            height: auto;
+            border-radius: 50%; /* Keeps it in its nice circular shape */
+            box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+        }
+
+        /* Official SDA Logo on the Right */
         .sdalogo {
             max-width: 120px;
             height: auto;
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
-            float: right;
         }
 
         nav {
@@ -144,90 +158,7 @@
             color: #718096;
         }
 
-        /* Stories Styling */
-        .story-card {
-            background: var(--card-bg);
-            margin-bottom: 1.5rem;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--secondary-color);
-            text-align: left;
-        }
-
-        .story-title {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .story-meta {
-            font-size: 0.85rem;
-            color: #718096;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .story-snippet {
-            color: #4a5568;
-            margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .read-more-btn {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 0.5rem 1.25rem;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .read-more-btn:hover {
-            background-color: var(--primary-color);
-        }
-
-        /* Full Story Dedicated View */
-        .full-story-view {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: left;
-        }
-
-        .back-btn {
-            background-color: #718096;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-bottom: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .back-btn:hover {
-            background-color: #4a5568;
-        }
-
-        .full-story-content {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            line-height: 1.8;
-            margin-top: 1.5rem;
-            white-space: pre-line;
-        }
-
+        /* Fundamentals Layout */
         .doctrine-category {
             background: var(--primary-color);
             color: var(--text-light);
@@ -261,6 +192,83 @@
             font-size: 0.85rem;
             font-weight: 600;
             margin-top: 0.5rem;
+        }
+
+        /* Virtues Layout */
+        .virtues-intro-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 2rem;
+            border-top: 5px solid var(--virtue-accent);
+        }
+
+        .fruit-banner-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .scripture-highlight {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #2d3748;
+            background-color: #f0fff4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--virtue-accent);
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .virtues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .virtue-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--virtue-accent);
+            transition: transform 0.2s ease;
+        }
+
+        .virtue-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .virtue-header {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .virtue-scripture-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .virtue-scripture-list li {
+            background: #f7fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #4a5568;
+            border-left: 3px solid #cbd5e0;
         }
 
         footer {
@@ -308,14 +316,20 @@
                 text-align: center;
                 padding: 0.75rem;
             }
-            .welcome-card {
+            .welcome-card, .virtues-intro-card {
                 padding: 1.5rem;
             }
             .welcome-card h1 {
                 font-size: 1.6rem;
             }
-            .full-story-view {
-                padding: 1.5rem;
+            header {
+                padding: 1rem;
+            }
+            .group-logo {
+                max-width: 65px; /* Shrinks slightly on tiny phone screens to fit perfectly */
+            }
+            .sda-logo {
+                max-width: 95px;
             }
         }
     </style>
@@ -324,14 +338,18 @@
 
     <header>
         <div class="logo-container">
-            <img src="sdalogo .JPG" alt="Seventh-day Adventist Church Logo" class="sdalogo">
+            <!-- New Group Logo on the Left -->
+            <img src="grouplogo.JPG" alt="SDA International Friends Logo" class="grouplogo">
+            
+            <!-- Official Church Logo on the Right -->
+            <img src="sdalogo.JPG" alt="Seventh-day Adventist Church Logo" class="sdalogo">
         </div>
     </header>
 
     <nav>
         <a onclick="switchTab('home')" id="nav-home" class="active">Home</a>
         <a onclick="switchTab('fundamentals')" id="nav-fundamentals">Fundamental Beliefs</a>
-        <a onclick="switchTab('stories')" id="nav-stories">Our Short Stories Collection</a>
+        <a onclick="switchTab('virtues')" id="nav-virtues">Christian Virtues</a>
     </nav>
 
     <main>
@@ -341,7 +359,7 @@
                 <h1>Welcome to Seventh Day Adventist International Friends</h1>
                 <p class="about-text">This is an international SDA friends group and you can freely join the family grow together in Christ and learn more about the bible.
                 We have Bible quizzes and more on our schedule.
-                Feel at home😇.</p>
+                Feel at home 🏡.</p>
                 
                 <div class="photo-gallery">
                     <div class="photo-frame">
@@ -388,7 +406,7 @@
 
             <div class="doctrine-category">5. The Doctrine of the Christian Life</div>
             <div class="belief-card"><div class="belief-title">19. Law of God</div><p>The great principles of God's law are embodied in the Ten Commandments and exemplified in the life of Christ.</p><span class="scripture-tag">Exodus 20:1-17</span></div>
-            <div class="belief-card"><div class="belief-title">20. The Sabbath</div><p>The beneficent Creator, after the six days of Creation, rested on the seventh day and instituted the Sabbath.</p><span class="script6ure-tag">Luke 4:16</span></div>
+            <div class="belief-card"><div class="belief-title">20. The Sabbath</div><p>The beneficent Creator, after the six days of Creation, rested on the seventh day and instituted the Sabbath.</p><span class="scripture-tag">Luke 4:16</span></div>
             <div class="belief-card"><div class="belief-title">21. Stewardship</div><p>We are God's stewards, entrusted with time, opportunities, and possessions. We return tithes and offerings.</p><span class="scripture-tag">Malachi 3:8-12</span></div>
             <div class="belief-card"><div class="belief-title">22. Christian Behavior</div><p>We are called to be a godly people who think, feel, and act in harmony with biblical principles.</p><span class="scripture-tag">1 Corinthians 10:31</span></div>
             <div class="belief-card"><div class="belief-title">23. Marriage and the Family</div><p>Marriage was divinely instituted in Eden and affirmed by Jesus to be a lifelong union between a man and a woman.</p><span class="scripture-tag">Matthew 19:3-9</span></div>
@@ -401,43 +419,108 @@
             <div class="belief-card"><div class="belief-title">28. New Earth</div><p>On the new earth, God will provide an eternal home for the redeemed and a perfect environment for everlasting life.</p><span class="scripture-tag">Revelation 21:1-7</span></div>
         </section>
 
-        <!-- STORIES MAIN LIST SECTION -->
-        <section id="stories-section" class="page-section">
-            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem; border-bottom: 2px solid var(--secondary-color); padding-bottom: 0.5rem;">Our Short Stories Collection</h2>
-            
-            <div id="stories-main-list">
-                <!-- STORY 1 -->
-                <div class="story-card">
-                    <div class="story-title">An Answered Prayer in the Storm</div>
-                    <div class="story-meta">Submitted by Fellowship Member • June 2026</div>
-                    <div class="story-snippet">This is the brief preview that everyone sees first. It cuts off cleanly so the page stays organized. When someone wants to read the full story of faith, they click the button below to open up the dedicated reading window.</div>
-                    <button class="read-more-btn" onclick="openStory(1)">Read More →</button>
-                </div>
-
-                <!-- STORY 2 -->
-                <div class="story-card">
-                    <div class="story-title">Faith Over Fear</div>
-                    <div class="story-meta">Submitted by Fellowship Member • June 2026</div>
-                    <div class="story-snippet">Another incredible short testimony from our international fellowship. Keeping these snippets limited to a few lines prevents long scrolling and looks completely professional.</div>
-                    <button class="read-more-btn" onclick="openStory(2)">Read More →</button>
-                </div>
-
-                <!-- STORY 3 -->
-                <div class="story-card">
-                    <div class="story-title">The Power of Global Unity</div>
-                    <div class="story-meta">Submitted by Fellowship Member • June 2026</div>
-                    <div class="story-snippet">A story celebrating how God connects brothers and sisters from completely different countries to build up each other's faith and study scripture together.</div>
-                    <button class="read-more-btn" onclick="openStory(3)">Read More →</button>
+        <!-- CHRISTIAN VIRTUES SECTION -->
+        <section id="virtues-section" class="page-section">
+            <div class="virtues-intro-card">
+                <h2 style="color: var(--primary-color); margin-bottom: 1rem;">The Fruit of the Spirit</h2>
+                <img src="fruits.jpg" alt="Fruit of the Spirit Collection" class="fruit-banner-img" onerror="this.src='https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?w=800'">
+                
+                <div class="scripture-highlight">
+                    <strong>Galatians 5:22-23 (KJV)</strong><br>
+                    "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance: against such there is no law."
                 </div>
             </div>
 
-            <!-- SINGLE DEDICATED STORY READING VIEW (Hidden by default) -->
-            <div id="story-single-view" style="display: none;" class="full-story-view">
-                <button class="back-btn" onclick="closeStory()">← Back to Stories</button>
-                <h2 id="full-view-title" style="color: var(--primary-color); font-size: 1.8rem; margin-bottom: 0.5rem;"></h2>
-                <div id="full-view-meta" class="story-meta"></div>
-                <hr style="border: 0; height: 1px; background: #e2e8f0; margin: 1rem 0;">
-                <p id="full-view-content" class="full-story-content"></p>
+            <div class="virtues-grid">
+                <!-- 1. LOVE -->
+                <div class="virtue-card">
+                    <div class="virtue-header">❤️ Love</div>
+                    <ul class="virtue-scripture-list">
+                        <li>John 13:34</li>
+                        <li>1 Corinthians 13:4–7</li>
+                        <li>1 John 4:7</li>
+                    </ul>
+                </div>
+
+                <!-- 2. JOY -->
+                <div class="virtue-card">
+                    <div class="virtue-header">😊 Joy</div>
+                    <ul class="virtue-scripture-list">
+                        <li>Nehemiah 8:10</li>
+                        <li>Psalm 16:11</li>
+                        <li>Romans 15:13</li>
+                    </ul>
+                </div>
+
+                <!-- 3. PEACE -->
+                <div class="virtue-card">
+                    <div class="virtue-header">🕊️ Peace</div>
+                    <ul class="virtue-scripture-list">
+                        <li>John 14:27</li>
+                        <li>Philippians 4:6–7</li>
+                        <li>Colossians 3:15</li>
+                    </ul>
+                </div>
+
+                <!-- 4. PATIENCE -->
+                <div class="virtue-card">
+                    <div class="virtue-header">⏳ Patience</div>
+                    <ul class="virtue-scripture-list">
+                        <li>Romans 12:12</li>
+                        <li>Galatians 6:9</li>
+                        <li>James 1:3–4</li>
+                    </ul>
+                </div>
+
+                <!-- 5. KINDNESS -->
+                <div class="virtue-card">
+                    <div class="virtue-header">🤍 Kindness</div>
+                    <ul class="virtue-scripture-list">
+                        <li>Ephesians 4:32</li>
+                        <li>Colossians 3:12</li>
+                        <li>Luke 6:35</li>
+                    </ul>
+                </div>
+
+                <!-- 6. GOODNESS -->
+                <div class="virtue-card">
+                    <div class="virtue-header">🌿 Goodness</div>
+                    <ul class="virtue-scripture-list">
+                        <li>Galatians 6:10</li>
+                        <li>Psalm 23:6</li>
+                        <li>Romans 12:21</li>
+                    </ul>
+                </div>
+
+                <!-- 7. FAITHFULNESS -->
+                <div class="virtue-card">
+                    <div class="virtue-header">🔒 Faithfulness</div>
+                    <ul class="virtue-scripture-list">
+                        <li>Lamentations 3:22–23</li>
+                        <li>1 Corinthians 4:2</li>
+                        <li>Hebrews 10:23</li>
+                    </ul>
+                </div>
+
+                <!-- 8. GENTLENESS -->
+                <div class="virtue-card">
+                    <div class="virtue-header">🕊️ Gentleness</div>
+                    <ul class="virtue-scripture-list">
+                        <li>Philippians 4:5</li>
+                        <li>2 Timothy 2:24</li>
+                        <li>Matthew 11:29</li>
+                    </ul>
+                </div>
+
+                <!-- 9. SELF-CONTROL -->
+                <div class="virtue-card">
+                    <div class="virtue-header">🛡️ Self-control</div>
+                    <ul class="virtue-scripture-list">
+                        <li>Galatians 5:22–23</li>
+                        <li>Titus 2:11–12</li>
+                        <li>Proverbs 25:28</li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
@@ -452,38 +535,7 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
     <script>
-        // Database of full stories
-        const storiesDatabase = {
-            1: {
-                title: "Happiness WithOut Caution",
-                meta: "Submitted by Fellowship Member • June 2026",
-                content:"Assuredly, I say to you, unless you are converted and become as little children, you will by no means enter the kingdom of heaven. — Matthew 18:3
-Therefore do not worry about tomorrow, for tomorrow will worry about its own things. Sufficient for the day is its own trouble. — Matthew 6:34 
-
-It was a lovely, sunny day. As normal, the sky was a bright blue, the grass green, and the environment felt like a ghost town, setting a quiet tone. My mother and I took a  ride to our local store. As we drove, the traffic light turned red, and we approached a stop street. It was strange enough that there were no cars, and we could easily drive through.
-I heard a deep voice say, “Be careful now, cars will bump you,as my window was rolled down. There, we saw a father and his beautiful daughter. The girl, carefree and eager, was determined to cross to the other side. These days, people won’t even stop for you. My mother signaled with her hand and allowed them to pass. The girl began skipping across the street.Why do you think small children skip? my mother asked, breaking the silence. Is it because they’re happy? I replied.
-Thinking about it, children are cheerful spirits who express real, genuine emotions openly. The girl was untroubled by the  dangers of crossing the road  and still crossed it gleefully. Sometimes we need to be children, unaware of possible dangers, as they say, children live in the moment.
-So,be a kid today. 
-
-As Children of God we should not allow the spirit of the crippling dread (fear) and the worry about our future consume our souls  of the joy God has given to us here today. Just as the little girl happily crossed the road, we should trust God and appreciate the present moment for he has filled us with the happiness of his daily blessings.
-
-So my word for you today is 
-Cherish the now,forget the fear."\n\nBecause we chose Option 2, you can paste paragraphs and paragraphs of content here without making your homepage messy. When a reader clicks 'Read More', the list disappears, and this dedicated view shows up cleanly.\n\nEverything formats automatically with spacing, making it feel like a professional blog post or digital journal. It provides a peaceful, uncluttered reading experience for your community members."
-            },
-            2: {
-                title: "Faith Over Fear",
-                meta: "Submitted by Fellowship Member • June 2026",
-                content: "This is the second full story content section.\n\nYou can easily change these texts directly in the code whenever a new testimony comes into your WhatsApp group. It's a beautiful way to document the spiritual growth of the family."
-            },
-            3: {
-                title: "The Power of Global Unity",
-                meta: "Submitted by Fellowship Member • June 2026",
-                content: "This is the third full story content section.\n\n'For where two or three are gathered together in my name, there am I in the midst of them.' — Matthew 18:20.\n\nOur international fellowship layout is now completely modern and scales perfectly on all mobile phones!"
-            }
-        };
-
         function switchTab(tabId) {
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active-section');
@@ -496,30 +548,6 @@ Cherish the now,forget the fear."\n\nBecause we chose Option 2, you can paste pa
             const targetNav = document.getElementById('nav-' + tabId);
             if(targetNav) targetNav.classList.add('active');
             
-            if(tabId === 'stories') {
-                closeStory();
-            }
-            
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        function openStory(storyId) {
-            const data = storiesDatabase[storyId];
-            if(data) {
-                document.getElementById('stories-main-list').style.display = 'none';
-                
-                document.getElementById('full-view-title').innerText = data.title;
-                document.getElementById('full-view-meta').innerText = data.meta;
-                document.getElementById('full-view-content').innerText = data.content;
-                
-                document.getElementById('story-single-view').style.display = 'block';
-                window.scrollTo({top: 0, behavior: 'smooth'});
-            }
-        }
-
-        function closeStory() {
-            document.getElementById('story-single-view').style.display = 'none';
-            document.getElementById('stories-main-list').style.display = 'block';
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
