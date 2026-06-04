@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seventh Day Adventist International Friends</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #d69e2e;
+            --text-dark: #2d3748;
+            --text-light: #f7fafc;
+            --bg-light: #edf2f7;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header & Logo Styles */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            margin-bottom: 1rem;
+        }
+
+        .sda-logo {
+            max-width: 120px;
+            height: auto;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--secondary-color);
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        /* Main Content Container */
+        main {
+            flex: 1;
+            max-width: 1000px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .page-section.active-section {
+            display: block;
+        }
+
+        /* Home View Styles */
+        .welcome-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-card h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            white-space: pre-line;
+        }
+
+        /* Photo Gallery Frame */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1xl));
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .photo-frame {
+            background: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+            background-color: #e2e8f0; /* placeholder bg */
+        }
+
+        .photo-frame p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #718096;
+        }
+
+        /* Fundamentals/Accordion Section Styles */
+        .doctrine-category {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 6px;
+            font-size: 1.25rem;
+        }
+
+        .belief-card {
+            background: var(--card-bg);
+            margin: 0.75rem 0;
+            padding: 1.25rem;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .belief-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .scripture-tag {
+            display: inline-block;
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-email {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .qr-container {
+            margin-top: 1rem;
+        }
+
+        .qr-code-img {
+            width: 160px;
+            height: 160px;
+            border: 4px solid white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Optimization */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                text-align: center;
+                padding: 0.75rem;
+            }
+            .welcome-card {
+                padding: 1.5rem;
+            }
+            .welcome-card h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Brand Logo Layer -->
+    <header>
+        <div class="logo-container">
+            <!-- Replace 'sda-logo.png' with your preferred global SDA logo graphic path -->
+            <img src="sdalogo.JPG" alt="Seventh-day Adventist Church Logo" class="sda-logo" onerror="this.src='https://via.placeholder.com/120x120?text=SDA+Logo'">
+        </div>
+    </header>
+
+    <!-- Top Navigation Interface -->
+    <nav>
+        <a onclick="switchTab('home')" id="nav-home" class="active">Home</a>
+        <a onclick="switchTab('fundamentals')" id="nav-fundamentals">Fundamental Beliefs</a>
+    </nav>
+
+    <!-- Interactive Workspace Segment -->
+    <main>
+        
+        <!-- Tab 1: Home Screen Layer -->
+        <section id="home-section" class="page-section active-section">
+            <div class="welcome-card">
+                <h1>Welcome to Seventh Day Adventist International Friends</h1>
+                <p class="about-text">This is an international SDA friends group and you can freely join the family grow together in Christ and learn more about the bible.
+                We have Bible quizzes and more on our schedule.
+                Feel at home 🏡.</p>
+                
+                <!-- Ellen G. White Twin Photo Array Frame -->
+                <div class="photo-gallery">
+                    <div class="photo-frame">
+                        <!-- Replace src with your local filename or actual link path -->
+                        <img src="ellenwhite1.JPG" alt="Ellen G. White Portrait 1" onerror="this.src='https://via.placeholder.com/300x300?text=Ellen+G.+White+Photo+1'">
+                        <p>Ellen G. White Historic Portrait</p>
+                    </div>
+                    <div class="photo-frame">
+                        <!-- Replace src with your local filename or actual link path -->
+                        <img src="ellenwhite2.JPG" alt="Ellen G. White Portrait 2" onerror="this.src='https://via.placeholder.com/300x300?text=Ellen+G.+White+Photo+2'">
+                        <p>Ellen G. White Ministry Years</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: 28 Fundamentals Layer -->
+        <section id="fundamentals-section" class="page-section">
+            <h2 style="color: var(--primary-color); margin-bottom: 1rem; border-bottom: 2px solid var(--secondary-color); padding-bottom: 0.5rem;">28 Fundamental Beliefs</h2>
+            
+            <!-- Category 1 -->
+            <div class="doctrine-category">1. The Doctrine of God</div>
+            
+            <div class="belief-card">
+                <div class="belief-title">1. The Holy Scriptures</div>
+                <p>The Bible is the inspired, infallible word of God—the ultimate rule of faith.</p>
+                <span class="scripture-tag">2 Timothy 3:16, 2 Peter 1:20-21</span>
+            </div>
+            
+            <div class="belief-card">
+                <div class="belief-title">2. The Trinity</div>
+                <p>There is one God: Father, Son, and Holy Spirit—a unity of three co-eternal Persons.</p>
+                <span class="scripture-tag">Matthew 28:19, 2 Corinthians 13:14</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">3. The Father</div>
+                <p>God the Eternal Father is the Creator, Source, Sustainer, and Sovereign of all creation.</p>
+                <span class="scripture-tag">John 3:16, 1 John 4:8</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">4. The Son</div>
+                <p>God the Eternal Son became incarnate in Jesus Christ. Through Him, all things were created, and He revealed God's character.</p>
+                <span class="scripture-tag">John 1:1-3, 14, Colossians 1:15-19</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">5. The Holy Spirit</div>
+                <p>God the Eternal Spirit was active with the Father and the Son in Creation, Incarnation, and Redemption, and draws people to God.</p>
+                <span class="scripture-tag">Genesis 1:1-2, Luke 1:35, John 16:7-13</span>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="doctrine-category">2. The Doctrine of Humanity</div>
+            <p style="margin: 0.5rem 0; font-style: italic; color:#555;">This covers where we came from, who we are, and how sin broke the world.</p>
+            
+            <div class="belief-card">
+                <div class="belief-title">6. Creation</div>
+                <p>God is Creator of all things, and has revealed in Scripture the authentic, historical account of His creative activity in a literal six-day week.</p>
+                <span class="scripture-tag">Genesis 1-2, Exodus 20:8-11</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">7. Nature of Humanity</div>
+                <p>Man and woman were made in the image of God with individuality, power, and freedom to think and do. Sin entered when they disobeyed, fracturing that image.</p>
+                <span class="scripture-tag">Genesis 1:26-28, Romans 5:12-17</span>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="doctrine-category">3. The Doctrine of Salvation</div>
+            <p style="margin: 0.5rem 0; font-style: italic; color:#555;">How Jesus rescues humanity from the penalty of sin.</p>
+
+            <div class="belief-card">
+                <div class="belief-title">8. The Great Controversy</div>
+                <p>All humanity is now involved in a cosmic conflict between Christ and Satan regarding the character of God, His law, and His sovereignty.</p>
+                <span class="scripture-tag">Revelation 12:4-9, Isaiah 14:12-14</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">9. Life, Death, and Resurrection of Christ</div>
+                <p>In Christ's life of perfect obedience to God's will, His suffering, death, and resurrection, God provided the only means of atonement for human sin.</p>
+                <span class="scripture-tag">John 3:16, Romans 5:8, 1 Corinthians 15:3-4</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">10. Experience of Salvation</div>
+                <p>In infinite love and mercy God made Christ, who knew no sin, to be sin for us, so that in Him we might be made the righteousness of God.</p>
+                <span class="scripture-tag">2 Corinthians 5:17-21, Ephesians 2:4-10</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">11. Growing in Christ</div>
+                <p>By His death on the cross Jesus triumphed over the forces of evil. Through the Holy Spirit, we are delivered from the past and empowered to grow spiritually.</p>
+                <span class="scripture-tag">Colossians 1:13-14, Galatians 2:20</span>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="doctrine-category">4. The Doctrine of the Church</div>
+            <p style="margin: 0.5rem 0; font-style: italic; color:#555;">The identity, unity, and mission of God's people on earth.</p>
+
+            <div class="belief-card">
+                <div class="belief-title">12. The Church</div>
+                <p>The church is the community of believers who confess Jesus Christ as Lord and Saviour.</p>
+                <span class="scripture-tag">Ephesians 1:22-23, Matthew 16:13-18</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">13. The Remnant and Its Mission</div>
+                <p>In the last days, a remnant is called out to keep the commandments of God and the faith of Jesus, announcing the arrival of the judgment hour.</p>
+                <span class="scripture-tag">Revelation 12:17, Revelation 14:6-12</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">14. Unity in the Body of Christ</div>
+                <p>The church is one body with many members, called from every nation, kindred, tongue, and people, equal in Christ.</p>
+                <span class="scripture-tag">Romans 12:4-5, Galatians 3:27-29</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">15. Baptism</div>
+                <p>By baptism we confess our faith in the death and resurrection of Jesus Christ, and testify of our death to sin and of our purpose to walk in newness of life. Done by full immersion.</p>
+                <span class="scripture-tag">Matthew 28:19-20, Romans 6:1-6</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">16. The Lord’s Supper</div>
+                <p>Participation in the emblems of the body and blood of Jesus as an expression of faith in Him. Prefaced by the ordinance of foot-washing.</p>
+                <span class="scripture-tag">1 Corinthians 11:23-26, John 13:1-17</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">17. Spiritual Gifts and Ministries</div>
+                <p>God bestows upon all members of His church in every age spiritual gifts, which each member is to employ in loving ministry.</p>
+                <span class="scripture-tag">Romans 12:4-8, Ephesians 4:11-16</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">18. The Gift of Prophecy</div>
+                <p>One of the identifying gifts of the remnant church is the gift of prophecy, manifested in the ministry of Ellen G. White.</p>
+                <span class="scripture-tag">Joel 2:28-29, Revelation 19:10</span>
+            </div>
+
+            <!-- Category 5 -->
+            <div class="doctrine-category">5. The Doctrine of the Christian Life</div>
+            <p style="margin: 0.5rem 0; font-style: italic; color:#555;">How an Adventist lives out their faith on a daily basis.</p>
+
+            <div class="belief-card">
+                <div class="belief-title">19. Law of God</div>
+                <p>The great principles of God's law are embodied in the Ten Commandments and exemplified in the life of Christ. They express God's love, will, and purposes.</p>
+                <span class="scripture-tag">Exodus 20:1-17, Matthew 5:17-20</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">20. The Sabbath</div>
+                <p>The beneficent Creator, after the six days of Creation, rested on the seventh day and instituted the Sabbath for all people as a perpetual memorial of Creation.</p>
+                <span class="scripture-tag">Genesis 2:1-3, Exodus 20:8-11, Luke 4:16</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">21. Stewardship</div>
+                <p>We are God's stewards, entrusted by Him with time and opportunities, abilities and possessions, and the blessings of the earth and its resources. We return tithes and offerings.</p>
+                <span class="scripture-tag">Malachi 3:8-12, 1 Corinthians 9:9-14</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">22. Christian Behavior</div>
+                <p>We are called to be a godly people who think, feel, and act in harmony with biblical principles in all aspects of personal and social life, including physical health.</p>
+                <span class="scripture-tag">Romans 12:1-2, 1 Corinthians 10:31</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">23. Marriage and the Family</div>
+                <p>Marriage was divinely instituted in Eden and affirmed by Jesus to be a lifelong union between a man and a woman in loving companionship.</p>
+                <span class="scripture-tag">Genesis 2:18-25, Matthew 19:3-9</span>
+            </div>
+
+            <!-- Category 6 -->
+            <div class="doctrine-category">6. The Doctrine of Last Things (Eschatology)</div>
+            <p style="margin: 0.5rem 0; font-style: italic; color:#555;">Prophecy, judgment, death, and the ultimate restoration of the earth.</p>
+
+            <div class="belief-card">
+                <div class="belief-title">24. Christ’s Ministry in the Heavenly Sanctuary</div>
+                <p>There is a sanctuary in heaven, the true tabernacle that the Lord set up. In it, Christ ministers on our behalf, making available the benefits of His atoning sacrifice.</p>
+                <span class="scripture-tag">Hebrews 8:1-5, Daniel 8:14</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">25. Second Coming of Christ</div>
+                <p>The second coming of Christ is the blessed hope of the church, the grand climax of the gospel. It will be literal, personal, visible, and worldwide.</p>
+                <span class="scripture-tag">Titus 2:13, Matthew 24, Revelation 1:7</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">26. Death and Resurrection</div>
+                <p>The wages of sin is death. But God, who alone is immortal, will grant eternal life to His redeemed. Until that day, death is an unconscious state for all people.</p>
+                <span class="scripture-tag">Ecclesiastes 9:5-6, 1 Thessalonians 4:13-18</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">27. Millennium and the End of Sin</div>
+                <p>The millennium is the thousand-year reign of Christ with His saints in heaven between the first and second resurrections. During this time, the wicked dead are judged.</p>
+                <span class="scripture-tag">Revelation 20, 1 Corinthians 6:2-3</span>
+            </div>
+
+            <div class="belief-card">
+                <div class="belief-title">28. New Earth</div>
+                <p>On the new earth, in which righteousness dwells, God will provide an eternal home for the redeemed and a perfect environment for everlasting life, love, joy, and learning.</p>
+                <span class="scripture-tag">2 Peter 3:13, Revelation 21:1-7</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Base Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-email">Contact Us: Seventh Day international friends @gmail.com</p>
+            <p>You can join our global community now using the QR code provided below:</p>
+            <div class="qr-container">
+                <!-- Direct linking reference to your requested local image file -->
+                <img src="image.JPG" alt="Join Community WhatsApp QR Code" class="qr-code-img">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tab Handler Engine -->
+    <script>
+        function switchTab(tabId) {
+            // Remove active classes from all segments
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active-section');
+            });
+            document.querySelectorAll('nav a').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+
+            // Activate chosen target layer
+            document.getElementById(tabId + '-section').classList.add('active-section');
+            document.getElementById('nav-' + tabId).classList.add('active');
+            
+            // Auto-scroll layout to top on dynamic switch
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
