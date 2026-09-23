@@ -1,0 +1,953 @@
+/* -------------------------------------------------------------
+       1. GLOBAL RESETS & STYLING
+       ------------------------------------------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* -------------------------------------------------------------
+       2. TOP ANNOUNCEMENT BAR
+       ------------------------------------------------------------- */
+    .top-bar {
+      background-color: #09233b;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding: 0.6rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .top-bar-info {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-info strong {
+      color: #f59e0b;
+    }
+
+    .top-bar-motto {
+      color: #f59e0b;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* -------------------------------------------------------------
+       3. NAVIGATION HEADER
+       ------------------------------------------------------------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background-color: #09233b;
+      color: #f59e0b;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 2px solid #f59e0b;
+    }
+
+    .logo-text h1 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #09233b;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #d97706;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #d97706;
+    }
+
+    .btn-primary {
+      background-color: #f59e0b;
+      color: #0f172a;
+      padding: 0.65rem 1.3rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background-color: #d97706;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       4. HERO BANNER
+       ------------------------------------------------------------- */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #09233b 0%, #0f172a 70%, #1e293b 100%);
+      color: #ffffff;
+      padding: 6rem 1.5rem;
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      z-index: 1;
+      transition: transform 10s ease-in-out;
+    }
+
+    .hero:hover .hero-bg-img {
+      transform: scale(1.05);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background-color: rgba(245, 158, 11, 0.2);
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fcd34d;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      max-width: 800px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h2 span {
+      color: #f59e0b;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      max-width: 650px;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 0.65rem 1.3rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       5. FLOATING STATS OVERVIEW
+       ------------------------------------------------------------- */
+    .stats-container {
+      max-width: 1100px;
+      margin: -2.5rem auto 3rem auto;
+      position: relative;
+      z-index: 10;
+      padding: 0 1.5rem;
+    }
+
+    .stats-grid {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+    }
+
+    .stat-card h3 {
+      font-size: 1.8rem;
+      color: #09233b;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-card p {
+      font-size: 0.78rem;
+      color: #64748b;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* -------------------------------------------------------------
+       6. COMMON SECTION HEADERS & LAYOUTS
+       ------------------------------------------------------------- */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h3 {
+      font-size: 2.2rem;
+      color: #09233b;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: #64748b;
+      font-size: 1rem;
+    }
+
+    /* -------------------------------------------------------------
+       7. HEADTEACHER MESSAGE SECTION & HOVER
+       ------------------------------------------------------------- */
+    .headteacher-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .headteacher-img-box {
+      width: 100%;
+      height: 400px;
+      background-color: #09233b;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .headteacher-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .headteacher-img-box:hover img {
+      transform: scale(1.08);
+    }
+
+    .headteacher-img-box:hover {
+      box-shadow: 0 12px 24px -5px rgba(9, 35, 59, 0.25);
+    }
+
+    .headteacher-content h4 {
+      color: #d97706;
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .headteacher-content h3 {
+      font-size: 2rem;
+      color: #09233b;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+    }
+
+    .headteacher-content p {
+      color: #475569;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .headteacher-author {
+      margin-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1rem;
+    }
+
+    .headteacher-author strong {
+      display: block;
+      color: #09233b;
+      font-size: 1.1rem;
+    }
+
+    .headteacher-author span {
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+
+    /* -------------------------------------------------------------
+       8. ACADEMICS & VOCATIONAL GRID
+       ------------------------------------------------------------- */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h4 {
+      font-size: 1.25rem;
+      color: #09233b;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .card-highlight {
+      border: 2px solid #f59e0b;
+      background-color: #fffdfa;
+    }
+
+    .card-highlight h4 {
+      color: #d97706;
+    }
+
+    /* -------------------------------------------------------------
+       9. FACILITIES CARDS WITH HOVER ANIMATION
+       ------------------------------------------------------------- */
+    .facility-card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .facility-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .facility-img-box {
+      width: 100%;
+      height: 200px;
+      background-color: #09233b;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .facility-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .facility-card:hover .facility-img-box img {
+      transform: scale(1.1);
+    }
+
+    .facility-body {
+      padding: 1.5rem;
+    }
+
+    .facility-body h4 {
+      font-size: 1.15rem;
+      color: #09233b;
+      margin-bottom: 0.5rem;
+    }
+
+    .facility-body p {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    /* -------------------------------------------------------------
+       10. CAMPUS GALLERY GRID WITH SMOOTH HOVER & OVERLAY
+       ------------------------------------------------------------- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .gallery-item {
+      height: 220px;
+      background-color: #09233b;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.12);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(9, 35, 59, 0.95), transparent);
+      color: #ffffff;
+      padding: 1.5rem 1rem 0.8rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transform: translateY(6px);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    /* -------------------------------------------------------------
+       11. ADMISSIONS & APPLICATION FORM SECTION
+       ------------------------------------------------------------- */
+    .apply-wrapper {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #09233b;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      border-color: #f59e0b;
+    }
+
+    .btn-submit {
+      background: #09233b;
+      color: #ffffff;
+      padding: 0.85rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: #d97706;
+      transform: translateY(-2px);
+    }
+
+    /* -------------------------------------------------------------
+       12. MAP & LOCATION SECTION
+       ------------------------------------------------------------- */
+    .map-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .location-info-card {
+      background: #09233b;
+      color: #ffffff;
+      padding: 2rem;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .location-info-card h4 {
+      font-size: 1.4rem;
+      color: #f59e0b;
+      margin-bottom: 1rem;
+    }
+
+    .location-info-card p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .map-frame-box {
+      width: 100%;
+      min-height: 380px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #e2e8f0;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .map-frame-box:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .map-frame-box iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      border: 0;
+    }
+
+    /* -------------------------------------------------------------
+       13. FOOTER
+       ------------------------------------------------------------- */
+    footer {
+      background-color: #09233b;
+      color: #94a3b8;
+      padding: 3.5rem 1.5rem 1.5rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 4px solid #f59e0b;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #f59e0b;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1e293b;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    /* -------------------------------------------------------------
+       14. RESPONSIVE BREAKPOINTS
+       ------------------------------------------------------------- */
+    @media (max-width: 850px) {
+      .headteacher-grid, .map-grid { grid-template-columns: 1fr; }
+      .top-bar { flex-direction: column; align-items: flex-start; }
+      .nav-container { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      nav { flex-wrap: wrap; gap: 1rem; }
+      .hero h2 { font-size: 2.2rem; }
+    }/* Perfect balanced badge frame size */
+.logo-badge-frame {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Fits the badge cleanly inside the 56px space */
+.logo-badge-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+  transition: transform 0.2s ease;
+}
+
+.logo-container:hover .logo-badge-img {
+  transform: scale(1.05);
+}
+.hero {
+  position: relative;
+  /* 1. Add your image path in url('...') */
+  background-image: 
+    linear-gradient(rgba(9, 35, 59, 0.75), rgba(9, 35, 59, 0.85)), /* Dark blue overlay for text readability */
+    url('hero-bg.jpg'); /* Replace 'hero-bg.jpg' with your image filename */
+  
+  background-size: cover;       /* Ensures the photo fills the entire section */
+  background-position: center;  /* Centers the main focus of the photo */
+  background-repeat: no-repeat;
+  padding: 5rem 1.5rem 6rem;
+  color: #ffffff;
+  text-align: center;
+}.hero h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;             /* Bright white heading text */
+  margin-bottom: 1rem;
+}
+
+.hero h2 span {
+  color: #f59e0b;             /* Warm yellow accent for "Kamwenge" */
+}
+
+.hero p {
+  color: #e2e8f0;             /* Soft light grey subtext */
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+/* Prefects' Corner Styles */
+.prefects-section {
+  background-color: #0f172a;
+  padding: 60px 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #ffffff;
+}
+
+.prefects-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.prefects-badge {
+  background-color: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.prefects-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.prefects-subtitle {
+  color: #94a3b8;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.prefects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.prefect-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 25px;
+  flex: 1 1 300px;
+  max-width: 340px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.prefect-card:hover {
+  transform: translateY(-4px);
+  border-color: #70cd6b;
+}
+
+.prefect-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #5ef966;
+  margin: 0 auto 15px auto;
+  display: block;
+}
+
+.prefect-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: #ffffff;
+}
+
+.prefect-role {
+  color: #67f660;
+  font-size: 13px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 15px;<a href="#admissions">Admissions</a><a href="#admissions">Admissions</a><a href="#admissions">Admissions</a><a href="#admissions">Admissions</a>
+}
+
+.prefect-quote {
+  color: #cbd5e1;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+}
+/* Academic Calendar Styles */
+.calendar-section {
+  background-color: #0f172a;
+  padding: 60px 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #ffffff;
+}
+
+.calendar-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.calendar-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 8px;
+}
+
+.calendar-subtitle {
+  color: #cbd5e1;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.calendar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.calendar-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 24px;
+  flex: 1 1 300px;
+  max-width: 340px;
+  box-sizing: border-box;
+  text-align: left;
+  transition: border-color 0.2s ease;
+}
+
+.calendar-card:hover {
+  border-color: #fbbf24;
+}
+
+.calendar-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.term-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  background-color: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  border-radius: 20px;
+}
+
+.term-dates {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.calendar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.calendar-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #cbd5e1;
+  padding: 8px 0;
+  border-bottom: 1px solid #334155;
+}
+
+.calendar-item:last-child {
+  border-bottom: none;
+}
+
+.calendar-item strong {
+  color: #ffffff;
+}
